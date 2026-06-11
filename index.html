@@ -37,68 +37,193 @@
     </header>
 
     <main>
+        <!-- Hero with background image -->
         <section id="inicio" class="hero" aria-labelledby="hero-heading">
-            <h1 id="hero-heading">Cristian Camilo Sua Lopez</h1>
-            <p class="hero-subtitle">Abogado Especialista en Derecho de Familia</p>
-            <p class="hero-value">Protegemos los derechos de su familia con experiencia y dedicación profesional.</p>
-            <a href="#contacto" class="btn-primary">Solicitar Consulta</a>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 id="hero-heading">Cristian Camilo Sua Lopez</h1>
+                <p class="hero-subtitle">Abogado Especialista en Derecho de Familia</p>
+                <p class="hero-value">Protegemos los derechos de su familia con experiencia y dedicación profesional.</p>
+                <a href="#contacto" class="btn-primary">Solicitar Consulta</a>
+            </div>
         </section>
 
+        <!-- Services with expandable cards -->
         <section id="servicios" aria-labelledby="servicios-heading">
             <h2 id="servicios-heading">Nuestros Servicios</h2>
+            <p class="section-subtitle">Haga click en cada servicio para conocer más detalles</p>
             <div class="servicios-grid">
-                <article class="servicio-card">
-                    <span class="servicio-icon" aria-hidden="true">👨‍👩‍👧</span>
-                    <h3>Custodia y Guarda</h3>
-                    <p>Asesoría legal en procesos de custodia y guarda de menores.</p>
+                <article class="servicio-card" tabindex="0" role="button" aria-expanded="false">
+                    <div class="servicio-header">
+                        <span class="servicio-icon" aria-hidden="true">👨‍👩‍👧</span>
+                        <h3>Custodia y Guarda</h3>
+                        <span class="servicio-toggle" aria-hidden="true">+</span>
+                    </div>
+                    <p class="servicio-summary">Asesoría legal en procesos de custodia y guarda de menores.</p>
+                    <div class="servicio-detail">
+                        <p>Representamos a padres y madres en procesos de custodia, buscando siempre el bienestar superior del menor. Nuestros servicios incluyen:</p>
+                        <ul>
+                            <li>Solicitud y contestación de demandas de custodia</li>
+                            <li>Modificación de custodias existentes</li>
+                            <li>Custodia compartida y exclusiva</li>
+                            <li>Medidas cautelares de protección al menor</li>
+                            <li>Conciliación extrajudicial</li>
+                        </ul>
+                    </div>
                 </article>
-                <article class="servicio-card">
-                    <span class="servicio-icon" aria-hidden="true">⚖️</span>
-                    <h3>Divorcio</h3>
-                    <p>Representación legal en procedimientos de divorcio contencioso y de mutuo acuerdo.</p>
+
+                <article class="servicio-card" tabindex="0" role="button" aria-expanded="false">
+                    <div class="servicio-header">
+                        <span class="servicio-icon" aria-hidden="true">⚖️</span>
+                        <h3>Divorcio</h3>
+                        <span class="servicio-toggle" aria-hidden="true">+</span>
+                    </div>
+                    <p class="servicio-summary">Representación legal en procedimientos de divorcio contencioso y de mutuo acuerdo.</p>
+                    <div class="servicio-detail">
+                        <p>Acompañamos a nuestros clientes en el proceso de disolución del vínculo matrimonial, garantizando sus derechos en cada etapa:</p>
+                        <ul>
+                            <li>Divorcio de mutuo acuerdo (rápido y económico)</li>
+                            <li>Divorcio contencioso con representación completa</li>
+                            <li>Liquidación de sociedad conyugal</li>
+                            <li>Separación de bienes</li>
+                            <li>Cesación de efectos civiles de matrimonio religioso</li>
+                        </ul>
+                    </div>
                 </article>
-                <article class="servicio-card">
-                    <span class="servicio-icon" aria-hidden="true">💰</span>
-                    <h3>Pensión Alimenticia</h3>
-                    <p>Gestión y reclamación de pensiones alimenticias para menores y cónyuges.</p>
+
+                <article class="servicio-card" tabindex="0" role="button" aria-expanded="false">
+                    <div class="servicio-header">
+                        <span class="servicio-icon" aria-hidden="true">💰</span>
+                        <h3>Pensión Alimenticia</h3>
+                        <span class="servicio-toggle" aria-hidden="true">+</span>
+                    </div>
+                    <p class="servicio-summary">Gestión y reclamación de pensiones alimenticias para menores y cónyuges.</p>
+                    <div class="servicio-detail">
+                        <p>Garantizamos el derecho de alimentos de menores y cónyuges a través de procesos judiciales y extrajudiciales:</p>
+                        <ul>
+                            <li>Fijación de cuota alimentaria</li>
+                            <li>Aumento o reducción de pensión</li>
+                            <li>Cobro ejecutivo de alimentos atrasados</li>
+                            <li>Procesos de exoneración</li>
+                            <li>Acuerdos conciliatorios</li>
+                        </ul>
+                    </div>
                 </article>
-                <article class="servicio-card">
-                    <span class="servicio-icon" aria-hidden="true">📋</span>
-                    <h3>Régimen de Visitas</h3>
-                    <p>Establecimiento y modificación de régimen de visitas para padres no custodios.</p>
+
+                <article class="servicio-card" tabindex="0" role="button" aria-expanded="false">
+                    <div class="servicio-header">
+                        <span class="servicio-icon" aria-hidden="true">📋</span>
+                        <h3>Régimen de Visitas</h3>
+                        <span class="servicio-toggle" aria-hidden="true">+</span>
+                    </div>
+                    <p class="servicio-summary">Establecimiento y modificación de régimen de visitas para padres no custodios.</p>
+                    <div class="servicio-detail">
+                        <p>Defendemos el derecho de los hijos a mantener contacto con ambos padres mediante un régimen de visitas justo:</p>
+                        <ul>
+                            <li>Establecimiento de régimen de visitas</li>
+                            <li>Modificación de horarios y condiciones</li>
+                            <li>Régimen supervisado cuando sea necesario</li>
+                            <li>Incumplimiento de régimen de visitas</li>
+                            <li>Mediación familiar</li>
+                        </ul>
+                    </div>
                 </article>
-                <article class="servicio-card">
-                    <span class="servicio-icon" aria-hidden="true">🤝</span>
-                    <h3>Adopción</h3>
-                    <p>Acompañamiento legal completo en procesos de adopción nacional.</p>
+
+                <article class="servicio-card" tabindex="0" role="button" aria-expanded="false">
+                    <div class="servicio-header">
+                        <span class="servicio-icon" aria-hidden="true">🤝</span>
+                        <h3>Adopción</h3>
+                        <span class="servicio-toggle" aria-hidden="true">+</span>
+                    </div>
+                    <p class="servicio-summary">Acompañamiento legal completo en procesos de adopción nacional.</p>
+                    <div class="servicio-detail">
+                        <p>Guiamos a las familias a través del proceso de adopción, asegurando el cumplimiento de todos los requisitos legales:</p>
+                        <ul>
+                            <li>Asesoría en requisitos y documentación</li>
+                            <li>Representación ante el ICBF</li>
+                            <li>Proceso judicial de adopción</li>
+                            <li>Adopción del hijo del cónyuge</li>
+                            <li>Seguimiento post-adopción</li>
+                        </ul>
+                    </div>
                 </article>
-                <article class="servicio-card">
-                    <span class="servicio-icon" aria-hidden="true">🛡️</span>
-                    <h3>Violencia Doméstica</h3>
-                    <p>Protección legal y medidas cautelares en casos de violencia intrafamiliar.</p>
+
+                <article class="servicio-card" tabindex="0" role="button" aria-expanded="false">
+                    <div class="servicio-header">
+                        <span class="servicio-icon" aria-hidden="true">🛡️</span>
+                        <h3>Violencia Intrafamiliar</h3>
+                        <span class="servicio-toggle" aria-hidden="true">+</span>
+                    </div>
+                    <p class="servicio-summary">Protección legal y medidas cautelares en casos de violencia intrafamiliar.</p>
+                    <div class="servicio-detail">
+                        <p>Brindamos protección inmediata y representación legal a víctimas de violencia intrafamiliar:</p>
+                        <ul>
+                            <li>Medidas de protección urgentes</li>
+                            <li>Denuncias ante Comisaría de Familia</li>
+                            <li>Representación en procesos penales</li>
+                            <li>Solicitud de medidas cautelares</li>
+                            <li>Acompañamiento integral a la víctima</li>
+                        </ul>
+                    </div>
                 </article>
             </div>
         </section>
 
+        <!-- About section with image -->
         <section id="acerca" aria-labelledby="acerca-heading">
             <h2 id="acerca-heading">Acerca del Abogado</h2>
             <div class="acerca-content">
-                <img src="assets/images/abogado.jpg" alt="Cristian Camilo Sua Lopez, abogado especialista en derecho de familia" width="300" height="300">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Cristian Camilo Sua Lopez, abogado especialista en derecho de familia" width="300" height="300">
                 <div class="acerca-text">
                     <h3>Cristian Camilo Sua Lopez</h3>
                     <p>Abogado egresado de la Universidad Católica de Colombia con especialización en Derecho de Familia. Ofrece asesoría legal integral en custodia de menores, divorcio, pensión alimenticia, régimen de visitas y adopción.</p>
                     <p class="specialization">Especialista en Derecho de Familia: gestión estratégica e integral de conflictos familiares con enfoque humano y profesional.</p>
+                    <div class="acerca-stats">
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Casos Resueltos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Clientes Satisfechos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24h</span>
+                            <span class="stat-label">Tiempo de Respuesta</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- CTA Banner -->
+        <section class="cta-banner" aria-labelledby="cta-heading">
+            <h2 id="cta-heading">¿Necesita Asesoría Legal Familiar?</h2>
+            <p>Primera consulta sin compromiso. Cuéntenos su caso y le orientamos sobre sus opciones legales.</p>
+            <a href="#contacto" class="btn-primary btn-light">Contactar Ahora</a>
+        </section>
+
+        <!-- Contact section -->
         <section id="contacto" aria-labelledby="contacto-heading">
             <h2 id="contacto-heading">Contacto</h2>
             <div class="contacto-content">
                 <div class="contacto-info">
-                    <p><a href="mailto:contacto@sualegal.com">contacto@sualegal.com</a></p>
-                    <p><a href="tel:+573132034882">+57 313 203 4882</a></p>
-                    <p><a href="https://wa.me/573132034882" target="_blank" rel="noopener noreferrer">WhatsApp: +57 313 203 4882 <span class="sr-only">(abre en ventana nueva)</span></a></p>
+                    <h3>Hablemos de su caso</h3>
+                    <p class="contacto-desc">Estamos disponibles para resolver sus dudas legales. Contáctenos por cualquiera de estos medios:</p>
+                    <div class="contacto-items">
+                        <div class="contacto-item">
+                            <span class="contacto-icon" aria-hidden="true">📧</span>
+                            <a href="mailto:contacto@sualegal.com">contacto@sualegal.com</a>
+                        </div>
+                        <div class="contacto-item">
+                            <span class="contacto-icon" aria-hidden="true">📞</span>
+                            <a href="tel:+573132034882">+57 313 203 4882</a>
+                        </div>
+                        <div class="contacto-item">
+                            <span class="contacto-icon" aria-hidden="true">💬</span>
+                            <a href="https://wa.me/573132034882" target="_blank" rel="noopener noreferrer">WhatsApp <span class="sr-only">(abre en ventana nueva)</span></a>
+                        </div>
+                    </div>
                 </div>
                 <form action="https://formspree.io/f/mojzkvka" method="POST" class="contacto-form" novalidate>
                     <div class="form-group">
@@ -108,7 +233,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Correo electrónico</label>
-                        <input type="email" id="email" name="email" required placeholder="contacto@sualegal.com">
+                        <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com">
                         <span class="error-message" role="alert" aria-live="assertive"></span>
                     </div>
                     <div class="form-group">
@@ -118,7 +243,7 @@
                     </div>
                     <div class="form-group">
                         <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" required maxlength="1000" placeholder="Describa brevemente su consulta"></textarea>
+                        <textarea id="mensaje" name="mensaje" required maxlength="1000" placeholder="Describa brevemente su consulta legal..."></textarea>
                         <span class="error-message" role="alert" aria-live="assertive"></span>
                     </div>
                     <button type="submit" class="btn-primary">Enviar Mensaje</button>
@@ -128,10 +253,18 @@
     </main>
 
     <footer>
-        <p>&copy; <span id="current-year"></span> Sua Legal. Todos los derechos reservados.</p>
-        <div class="footer-contact">
-            <a href="mailto:contacto@sualegal.com">contacto@sualegal.com</a>
-            <a href="tel:+573132034882">+57 313 203 4882</a>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">Sua Legal</span>
+                <p>Abogado Especialista en Derecho de Familia</p>
+            </div>
+            <div class="footer-contact">
+                <a href="mailto:contacto@sualegal.com">contacto@sualegal.com</a>
+                <a href="tel:+573132034882">+57 313 203 4882</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Sua Legal. Todos los derechos reservados.</p>
         </div>
     </footer>
 

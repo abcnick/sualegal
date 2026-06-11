@@ -12,6 +12,77 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===========================
+    // Hamburger Menu Toggle
+    // ===========================
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.setAttribute('aria-expanded', 'false');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navToggle.setAttribute('aria-expanded', 'false');
+                navMenu.classList.remove('active');
+                navToggle.focus();
+            }
+        });
+    }
+
+    // ===========================
+    // Smooth Scroll
+    // ===========================
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const navHeight = document.querySelector('header').offsetHeight;
+                window.scrollTo({
+                    top: target.offsetTop - navHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // ===========================
+    // Expandable Service Cards
+    // ===========================
+    const serviceCards = document.querySelectorAll('.servicio-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const isExpanded = card.getAttribute('aria-expanded') === 'true';
+            // Close all others
+            serviceCards.forEach(c => c.setAttribute('aria-expanded', 'false'));
+            // Toggle current
+            card.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.click();
+            }
+        });
+    });
+
+    // ===========================
     // Active Section Highlighting
     // ===========================
     // Uses IntersectionObserver to detect which section is in the viewport
