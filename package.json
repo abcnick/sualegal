@@ -1,0 +1,26 @@
+{
+  "name": "sualegal",
+  "version": "1.0.0",
+  "description": "Sitio web estático profesional para un abogado especializado en gerencia de familia. Diseñado para generar confianza, presentar servicios legales y facilitar el contacto con potenciales clientes.",
+  "main": "script.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abcnick/sualegal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/abcnick/sualegal/issues"
+  },
+  "homepage": "https://github.com/abcnick/sualegal#readme",
+  "devDependencies": {
+    "fast-check": "^4.8.0",
+    "vitest": "^4.1.8"
+  }
+}

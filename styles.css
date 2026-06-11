@@ -1,0 +1,770 @@
+/* =============================================
+   Sua Legal - Estilos Globales
+   Arquitectura:
+   1. Variables CSS (Custom Properties)
+   2. Reset y base
+   3. Tipografía
+   4. Layout y contenedores
+   5. Componentes
+   6. Estados interactivos
+   7. Media queries
+   ============================================= */
+
+/* =============================================
+   1. Variables CSS (Custom Properties)
+   ============================================= */
+:root {
+    --color-primary: #1B3A5C;
+    --color-secondary: #C9A84C;
+    --color-bg-light: #FAFAFA;
+    --color-bg-alt: #F0F0F0;
+    --color-text: #2D2D2D;
+    --color-error: #D32F2F;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Open Sans', sans-serif;
+    --nav-height: 70px;
+    --max-width: 1920px;
+}
+
+/* =============================================
+   2. Reset y base
+   ============================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height);
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg-light);
+    line-height: 1.6;
+    font-size: 1rem;
+    padding-top: var(--nav-height);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+/* Utilidades de accesibilidad */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =============================================
+   3. Tipografía
+   ============================================= */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    line-height: 1.3;
+    margin-bottom: 0.75em;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* =============================================
+   4. Layout y contenedores
+   ============================================= */
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+section {
+    padding: 4rem 1.5rem;
+}
+
+section:nth-of-type(even) {
+    background-color: var(--color-bg-alt);
+}
+
+section:nth-of-type(odd) {
+    background-color: var(--color-bg-light);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* =============================================
+   5. Componentes
+   ============================================= */
+
+/* --- Navegación --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-primary);
+    height: 100%;
+    padding: 0 1.5rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.nav-logo {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+.nav-logo:hover {
+    color: #fff;
+}
+
+.nav-logo:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+/* Hamburger toggle button */
+.nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-toggle:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before {
+    top: -7px;
+}
+
+.hamburger::after {
+    top: 7px;
+}
+
+/* Nav menu - hidden on mobile by default */
+.nav-menu {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 1rem 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.nav-menu li {
+    width: 100%;
+    text-align: center;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--color-secondary);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav-menu a:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: -2px;
+}
+
+.nav-menu a:active {
+    color: var(--color-secondary);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu a.active {
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+/* --- Hero --- */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--nav-height) 1.5rem 2rem;
+    overflow-x: hidden;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: var(--color-secondary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero-value {
+    font-size: 1.125rem;
+    color: var(--color-text);
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.hero .btn-primary {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+}
+
+/* --- Sección Acerca del Abogado --- */
+#acerca {
+    padding: 4rem 1.5rem;
+}
+
+.acerca-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+#acerca img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--color-secondary);
+}
+
+.acerca-text h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+}
+
+.specialization {
+    border-left: 4px solid var(--color-secondary);
+    padding: 0.75rem 1rem;
+    background-color: var(--color-bg-alt);
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* --- Sección de Servicios --- */
+#servicios {
+    padding: 4rem 1.5rem;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servicio-card {
+    background-color: #fff;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.2s ease;
+}
+
+.servicio-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.servicio-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.servicio-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.servicio-card p {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* --- Sección de Contacto --- */
+#contacto {
+    padding: 4rem 1.5rem;
+    background-color: var(--color-bg-alt);
+}
+
+#contacto-heading {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contacto-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+}
+
+.contacto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contacto-info a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* --- Formulario de Contacto --- */
+.contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text);
+    background-color: #fff;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border-color: var(--color-error);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Error messages - not by color alone (Req 11.7) */
+.error-message {
+    color: var(--color-error);
+    font-size: 0.85rem;
+    min-height: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.error-message::before {
+    content: "";
+}
+
+.error-message:not(:empty)::before {
+    content: "⚠ ";
+}
+
+/* --- Form feedback messages --- */
+.form-success {
+    padding: 1rem;
+    background-color: #e8f5e9;
+    border: 1px solid #388e3c;
+    border-radius: 4px;
+    color: #2e7d32;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-success::before {
+    content: "✓ ";
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.form-error-global {
+    padding: 1rem;
+    background-color: #fdecea;
+    border: 1px solid var(--color-error);
+    border-radius: 4px;
+    color: var(--color-error);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-error-global::before {
+    content: "⚠ ";
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* --- Botón primario (CTA) --- */
+.btn-primary {
+    display: inline-block;
+    padding: 0.875rem 1.75rem;
+    background-color: var(--color-secondary);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* --- Footer (Pie de Página) --- */
+footer {
+    background-color: var(--color-primary);
+    color: #fff;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+footer p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: var(--color-secondary);
+}
+
+footer a:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+    color: var(--color-secondary);
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* =============================================
+   6. Estados interactivos
+   ============================================= */
+a:hover {
+    color: var(--color-secondary);
+}
+
+a:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+.contacto-info a:hover,
+.contacto-info a:focus {
+    color: var(--color-secondary);
+}
+
+.contacto-info a:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 1px;
+    border-color: var(--color-secondary);
+}
+
+.btn-primary:hover {
+    background-color: #b8943f;
+}
+
+.btn-primary:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.btn-primary:active {
+    background-color: #a6832e;
+}
+
+/* =============================================
+   7. Media queries
+   ============================================= */
+
+/* --- Mobile: Touch targets (below 768px) --- */
+@media (max-width: 767px) {
+    /* Ensure all interactive elements meet 44x44px minimum touch target */
+    .nav-menu a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-primary {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .contacto-info a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .footer-contact a,
+    .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        min-width: 44px;
+        padding: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        min-height: 44px;
+    }
+
+    button[type="submit"] {
+        min-height: 44px;
+    }
+}
+
+/* --- Tablet breakpoint (768px+) --- */
+@media (min-width: 768px) {
+    /* Navigation - desktop horizontal layout */
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-menu {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        padding: 0;
+        opacity: 1;
+        transform: none;
+        visibility: visible;
+        background-color: transparent;
+        gap: 0.25rem;
+    }
+
+    .nav-menu li {
+        width: auto;
+    }
+
+    .nav-menu a {
+        padding: 0.5rem 1rem;
+    }
+
+    /* Acerca - two column layout */
+    .acerca-content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #acerca img {
+        flex-shrink: 0;
+    }
+
+    /* Servicios - 2 columns */
+    .servicios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Contacto - side by side layout */
+    .contacto-content {
+        grid-template-columns: 1fr 2fr;
+        align-items: start;
+    }
+}
+
+/* --- Desktop breakpoint (1200px+) --- */
+@media (min-width: 1200px) {
+    .servicios-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --- Extra large screens (above 1920px) --- */
+@media (min-width: 1921px) {
+    body {
+        background-color: var(--color-bg-light);
+    }
+
+    main,
+    footer {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    header nav {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
